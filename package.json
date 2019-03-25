@@ -1,0 +1,54 @@
+{
+  "name": "fi-pin",
+  "version": "0.0.1",
+  "description": "Finnish Personal Identification Number validate + gender check",
+  "main": "dist/index.js",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.11.6",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "source-map-support": "^0.5.11",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.4000"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "nyc mocha test/*.ts"
+  },
+  "keywords": [
+    "pin",
+    "personid"
+  ],
+  "files": [
+    "dist"
+  ],
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "all": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mharj/hetu.git"
+  },
+  "author": "mharj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mharj/hetu/issues"
+  },
+  "homepage": "https://github.com/mharj/hetu#readme"
+}
