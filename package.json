@@ -1,6 +1,6 @@
 {
   "name": "fi-pin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Finnish Personal Identification Number validate + gender check",
   "main": "dist/index.js",
   "devDependencies": {
