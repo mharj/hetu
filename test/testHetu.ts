@@ -15,5 +15,7 @@ describe('test hetu', () => {
 	it('should check gender from hetu', () => {
 		expect(isMale('131052-308T')).to.be.eq(false);
 		expect(isFemale('131052-308T')).to.be.eq(true);
+		expect(isMale.bind(null,'')).to.throw('not valid person id');
+		expect(isFemale.bind(null,'')).to.throw('not valid person id');
 	});
 });

@@ -7,9 +7,10 @@
 	"extensions": [
 		"dbaeumer.vscode-eslint",
 		"ms-vscode.vscode-typescript-tslint-plugin",
-		"esbenp.prettier-vscode"
+		"esbenp.prettier-vscode",
+		"hbenl.vscode-test-explorer",
+		"hbenl.vscode-mocha-test-adapter"
 	],
 	"postCreateCommand": "npm install",
 	"remoteUser": "node"
 }
-

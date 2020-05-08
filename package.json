@@ -22,6 +22,14 @@
     "test": "mocha test/*.ts",
     "coverage": "nyc mocha test/*.ts"
   },
+  "mocha": {
+    "exit": true,
+    "recursive": true,
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ]
+  },
   "keywords": [
     "pin",
     "personid"
