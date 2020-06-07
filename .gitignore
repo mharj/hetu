@@ -59,3 +59,6 @@ typings/
 
 # TS dist
 dist
+
+# mocha-junit-reporter
+test-results.xml
