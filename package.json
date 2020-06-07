@@ -19,8 +19,7 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run test && npm run build",
-    "test": "mocha test/*.ts",
-    "coverage": "nyc mocha test/*.ts"
+    "test": "nyc --reporter=lcovonly --reporter=text mocha test/*.ts"
   },
   "mocha": {
     "exit": true,
