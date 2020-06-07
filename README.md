@@ -1,4 +1,4 @@
-### Finnish Person ID check [![Build Status](https://travis-ci.org/mharj/hetu.svg?branch=master)](https://travis-ci.org/mharj/hetu) [![Maintainability](https://api.codeclimate.com/v1/badges/3dca350166c6d1ea4105/maintainability)](https://codeclimate.com/github/mharj/hetu/maintainability)
+### Finnish Person ID check [![Build Status](https://travis-ci.org/mharj/hetu.svg?branch=master)](https://travis-ci.org/mharj/hetu) [![Maintainability](https://api.codeclimate.com/v1/badges/3dca350166c6d1ea4105/maintainability)](https://codeclimate.com/github/mharj/hetu/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/3dca350166c6d1ea4105/test_coverage)](https://codeclimate.com/github/mharj/hetu/test_coverage)
 
 ```javascript
 const {isFemale, isMale, isValidPersonId} = require('fi-pin');
