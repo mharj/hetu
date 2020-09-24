@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -27,3 +27,9 @@ jobs:
       - run: npm install
         
       - run: npm test
+
+      - name: Code Climate Test Reporter
+        uses: aktions/codeclimate-test-reporter@v1
+        with:
+          codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
+          command: after-build
