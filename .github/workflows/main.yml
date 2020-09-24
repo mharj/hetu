@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v2
       - name: Code Climate Test Reporter
         uses: aktions/codeclimate-test-reporter@v1
         with:
