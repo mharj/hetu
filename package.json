@@ -20,10 +20,14 @@
     "scripts": {
         "build": "tsc",
         "prepublishOnly": "npm run test && npm run build",
-        "test": "nyc mocha test/*.ts"
+        "test": "nyc mocha"
     },
     "mocha": {
         "exit": true,
+        "extension": [
+            "ts",
+            "js"
+        ],
         "recursive": true,
         "require": [
             "ts-node/register",
