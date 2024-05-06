@@ -1,17 +1,17 @@
 {
     "name": "fi-pin",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Finnish Personal Identification Number validate + gender check",
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
-	"exports": {
-		".": {
-			"require": "./dist/index.js",
-			"import": "./dist/index.mjs",
-			"types": "./dist/index.d.ts"
-		}
-	},
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
     "devDependencies": {
         "@types/chai": "^4.3.16",
         "@types/mocha": "^9.1.1",
