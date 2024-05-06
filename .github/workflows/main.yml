@@ -2,23 +2,52 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
+
+env:
+  # Setting an environment variable with the value of a configuration variable
+  CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  PACKAGE_NAME: 'unknown'
+  HAVE_COVERAGE_SCRIPT: false
+  PACKAGE_VERSION: 'unknown'
+  NPM_VERSION: 'unknown'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
-      - run: npm install
-      - run: npm test
-      - name: Code Climate Test Reporter
-        uses: aktions/codeclimate-test-reporter@v1
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Read package information
+        run: |
+          echo "PACKAGE_NAME=$(cat package.json | jq -r .name)" >> $GITHUB_ENV
+          echo "PACKAGE_VERSION=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
+          echo "HAVE_COVERAGE_SCRIPT=$(jq 'if .scripts.coverage == null then false else true end' package.json)" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Run linter checks
+        run: npm run lint
+
+      - name: Run and publish code coverage
+        if: |
+          github.ref == 'refs/heads/main' &&
+          env.CC_TEST_REPORTER_ID != '' &&
+          env.HAVE_COVERAGE_SCRIPT == 'true'
+        uses: paambaati/codeclimate-action@v5.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ env.CC_TEST_REPORTER_ID }}
         with:
-          codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
-          command: after-build
+          coverageCommand: npm run coverage
