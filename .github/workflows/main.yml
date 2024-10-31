@@ -64,7 +64,7 @@ jobs:
 
       - name: Run and publish code coverage
         if: |
-          github.ref == 'refs/heads/main' &&
+          github.ref == 'refs/heads/master' &&
           env.CC_TEST_REPORTER_ID != '' &&
           env.HAVE_COVERAGE_SCRIPT == 'true'
         uses: paambaati/codeclimate-action@v5.0.0
@@ -77,7 +77,7 @@ jobs:
       - name: Publish ${{env.PACKAGE_NAME}} ${{env.PACKAGE_VERSION}}
         run: ${{ env.NPM }} publish --no-git-checks --access public
         if: |
-          github.ref == 'refs/heads/main' &&
+          github.ref == 'refs/heads/master' &&
           env.NPM_TOKEN != '' &&
           env.PACKAGE_VERSION != env.NPM_VERSION
         env:
