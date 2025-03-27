@@ -8,15 +8,23 @@
 
 This module provides functions to validate Finnish person IDs (Henkilötunnus) and determine the gender based on the ID. A valid Finnish person ID consists of 11 characters in the format `DDMMYYCZZZQ`, where:
 
-- `DDMMYY` represents the date of birth
-- `C` is the century sign ('+' for 1800s, '-' for 1900s, 'A' for 2000s)
-- `ZZZ` is an individual number (odd numbers are males, even numbers are females)
-- `Q` is a checksum character
+- `DDMMYY` represents the date of birth.
+- `C` is the century sign ('+' for 1800s, '-' for 1900s, 'A' for 2000s).
+- `ZZZ` is an individual number (odd numbers are males, even numbers are females).
+- `Q` is a checksum character.
 
 ## Installation
 
+To install the module, run the following command:
+
 ```bash
 npm install fi-pin
+```
+
+or direct import from unpkg (i.e., on a web page):
+
+```typescript
+import {isValidPersonId, isMale, isFemale} from 'https://unpkg.com/fi-pin@latest/dist/index.mjs';
 ```
 
 ## Usage

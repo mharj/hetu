@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest';
-import {getCheckSum, isFemale, isMale, isValidPersonId, parseStringToInt, validateString} from '../src/';
 import {type z} from 'zod';
+import {getCheckSum, isFemale, isMale, isValidPersonId, parseStringToInt, validateString} from '../src';
 
 const femaleValue = '131052-308T';
 const maleValue = '131052-309U';

@@ -4,8 +4,9 @@ const checkSumMapLength = checksumCharacterSet.length; // is always 31
 /**
  * Parse string to integer
  * @throws TypeError if value is not a number
- * @param value - string to parse
- * @returns value as number
+ * @param {string | undefined} value - string to parse
+ * @returns {number} value as number
+ * @since v0.0.7
  */
 export function parseStringToInt(value: string | undefined): number {
 	if (!value) {
@@ -21,8 +22,9 @@ export function parseStringToInt(value: string | undefined): number {
 /**
  * Validate that value is a string
  * @throws TypeError if value is not a string
- * @param value - value to validate
- * @returns value as string
+ * @param {unknown} value - value to validate
+ * @returns {string} value as string
+ * @since v0.0.7
  */
 export function validateString(value: unknown): string {
 	if (typeof value !== 'string') {
@@ -32,35 +34,38 @@ export function validateString(value: unknown): string {
 }
 
 /**
- * Get checksum for check sum index number
- * @param index - index number to lookup checksum character
- * @returns checksum character from checksum index map
+ * Returns the checksum character from the checksum index map.
+ * @param {number} index The index of the checksum character.
+ * @returns {string} The checksum character at the specified index, or undefined if the index is out of bounds.
+ * @throws {RangeError} If the index is less than 0 or greater than or equal to checkSumMapLength.
+ * @since v0.0.7
  */
-export function getCheckSum(index: number): string | undefined {
-	if (index < 0 || index >= checkSumMapLength) {
+export function getCheckSum(index: number): string {
+	const checkSumChar = checksumCharacterSet[index];
+	if (!checkSumChar) {
 		throw new RangeError(`Index out of bounds: ${index.toString()} (valid range: 0-${String(checkSumMapLength - 1)})`);
 	}
-	return checksumCharacterSet[index];
+	return checkSumChar;
 }
 
 /**
- * Validate if a string is a valid Finnish person ID
+ * Validates whether a string is a valid Finnish person ID.
  *
  * A valid Finnish person ID consists of 11 characters in the format DDMMYYCZZZQ, where:
- * - DDMMYY represents the date of birth
- * - C is the century sign ('+' for 1800s, '-' for 1900s, 'A' for 2000s)
- * - ZZZ is an individual number (odd numbers are males, even numbers are females)
- * - Q is a checksum character
+ * - DDMMYY represents the date of birth.
+ * - C is the century sign ('+' for 1800s, '-' for 1900s, 'A' for 2000s).
+ * - ZZZ is an individual number (odd numbers are males, even numbers are females).
+ * - Q is a checksum character.
  *
  * The checksum character is calculated based on the first 10 characters.
- * @param personId - The person ID string to validate
- * @template BRAND - Optional: brand type for more strict type (i.e. use Zod branded type or custom type)
- * @returns true if the person ID is valid, false otherwise
+ * @param {string} personId The person ID string to validate.
+ * @template BRAND Optional brand type for a more strict type (e.g., use Zod branded type or custom type).
+ * @returns {boolean} True if the person ID is valid, false otherwise.
  * @example
  * isValidPersonId('131052-308T') // true
  * isValidPersonId('131052-3082') // false
  * const personId = '131052-308T';
- * if(isValidPersonId<z.BRAND<'PersonID'>>(personId)) { // personId type is now: string & z.BRAND<'PersonID'>
+ * if (isValidPersonId<z.BRAND<'PersonID'>>(personId)) { // personId type is now: string & z.BRAND<'PersonID'>
  *   // personId type is now: string & z.BRAND<'PersonID'>
  * }
  * @since v0.0.1
@@ -78,11 +83,11 @@ export function isValidPersonId<BRAND = string>(personId: string): personId is s
 }
 
 /**
- * Check if personId belongs to a Finnish male
- * @throws TypeError if personId is not valid
- * @param personId - Finnish personId string
- * @template BRAND - Optional: brand type for more strict type (i.e. use Zod branded type or custom type)
- * @returns true if the personId belongs to a male, false otherwise
+ * Checks whether a person ID belongs to a Finnish male.
+ * @param {string} personId The Finnish person ID string.
+ * @template BRAND Optional brand type for a more strict type (e.g., use Zod branded type or custom type).
+ * @returns {boolean} True if the person ID belongs to a male, false otherwise.
+ * @throws {TypeError} If the person ID is not valid.
  * @example
  * isMale('131052-309U') // true
  * isMale('131052-308T') // false
@@ -97,11 +102,11 @@ export function isMale<BRAND = string>(personId: string): personId is string & B
 }
 
 /**
- * Check if personId belongs to a Finnish female
- * @throws TypeError if personId is not valid
- * @param personId - Finnish personId string
- * @template BRAND - Optional: brand type for more strict type (i.e. use Zod branded type or custom type)
- * @returns true if the personId belongs to a female, false otherwise
+ * Checks whether a person ID belongs to a Finnish female.
+ * @param {string} personId The Finnish person ID string.
+ * @template BRAND Optional brand type for a more strict type (e.g., use Zod branded type or custom type).
+ * @returns {boolean} True if the person ID belongs to a female, false otherwise.
+ * @throws {TypeError} If the person ID is not valid.
  * @example
  * isFemale('131052-308T') // true
  * isFemale('131052-309U') // false
