@@ -4,26 +4,12 @@ import {getCheckSum, isFemale, isMale, isValidPersonId, parseStringToInt, valida
 
 const femaleValue = '131052-308T';
 const maleValue = '131052-309U';
-
 const personId = '131052-308T';
-
-if (isValidPersonId<z.BRAND<'PersonID'>>(personId)) {
-	// personId is type as: string & z.BRAND<'PersonID'>
-	if (isMale<z.BRAND<'MalePersonID'>>(personId)) {
-		// personId is type as: string & z.BRAND<'PersonID'> & z.BRAND<'MalePersonID'>
-	}
-	if (isFemale<z.BRAND<'FemalePersonID'>>(personId)) {
-		// personId is type as: string & z.BRAND<'PersonID'> & z.BRAND<'FemalePersonID'>
-	}
-}
 
 describe('test hetu', () => {
 	describe('test isValidPersonId', () => {
 		it('should validate hetu', () => {
-			// test branded type guard
-			if (isValidPersonId<z.BRAND<'PersonID'>>(femaleValue)) {
-				const _test: string & z.BRAND<'PersonID'> = femaleValue;
-			}
+			expect(isValidPersonId(personId)).to.be.eq(true);
 			expect(isValidPersonId('131052A308T')).to.be.eq(true);
 			expect(isValidPersonId('131052-3082')).to.be.eq(false);
 		});

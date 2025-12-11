@@ -5,7 +5,8 @@
     },
     "editor.codeActionsOnSave": {
         "source.action.useSortedKeys.biome": "explicit",
-        "source.fixAll.biome": "explicit"
+        "source.fixAll.biome": "explicit",
+        "source.organizeImports.biome": "explicit"
     },
     "[jsonc]": {
         "editor.defaultFormatter": "biomejs.biome"

@@ -11,5 +11,8 @@ export default defineConfig({
 			include: ['src/**/*.ts'],
 			reporter: ['text'],
 		},
+		typecheck: {
+			include: ['**/*.test-d.ts'],
+		},
 	},
 });

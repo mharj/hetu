@@ -20,7 +20,8 @@
         "strictNullChecks": true,
         "noUncheckedIndexedAccess": true,
         "noUnusedLocals": true,
-        "strict": true
+        "strict": true,
+        "isolatedDeclarations": true
     },
     "include": ["src/"],
     "exclude": ["node_modules", "**/*.spec.ts", "test/"]
