@@ -31,7 +31,7 @@ jobs:
           version: 9
       - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Read package information
@@ -61,17 +61,6 @@ jobs:
       - name: Run linter checks
         if: env.HAVE_LINT_SCRIPT == 'true'
         run: ${{ env.NPM }} run lint
-
-      - name: Run and publish code coverage
-        if: |
-          github.ref == 'refs/heads/master' &&
-          env.CC_TEST_REPORTER_ID != '' &&
-          env.HAVE_COVERAGE_SCRIPT == 'true'
-        uses: paambaati/codeclimate-action@v5.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ env.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: ${{ env.NPM }} run coverage
 
       # npm publish when PR done
       - name: Publish ${{env.PACKAGE_NAME}} ${{env.PACKAGE_VERSION}}
