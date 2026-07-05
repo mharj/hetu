@@ -1,8 +1,10 @@
 # Finnish Person ID Check
 
+[![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
+[![npm version](https://badge.fury.io/js/fi-pin.svg)](https://badge.fury.io/js/fi-pin)
+[![Maintainability](https://qlty.sh/gh/mharj/projects/hetu/maintainability.svg)](https://qlty.sh/gh/mharj/projects/hetu)
+[![Code Coverage](https://qlty.sh/gh/mharj/projects/hetu/coverage.svg)](https://qlty.sh/gh/mharj/projects/hetu)
 ![github action](https://github.com/mharj/hetu/actions/workflows/main.yml/badge.svg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3dca350166c6d1ea4105/maintainability)](https://codeclimate.com/github/mharj/hetu/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/3dca350166c6d1ea4105/test_coverage)](https://codeclimate.com/github/mharj/hetu/test_coverage)
 
 ## Overview
 
