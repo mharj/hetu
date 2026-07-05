@@ -4,12 +4,12 @@ import {defineConfig} from 'vitest/config';
 
 export default defineConfig({
 	test: {
-		reporters: process.env.GITHUB_ACTIONS ? ['github-actions'] : ['verbose', 'github-actions'],
+		reporters: ['minimal', 'github-actions'],
 		include: ['test/**/*.test.ts'],
 		coverage: {
 			provider: 'v8',
 			include: ['src/**/*.ts'],
-			reporter: ['text'],
+			reporter: ['text', 'lcovonly'],
 		},
 		typecheck: {
 			include: ['**/*.test-d.ts'],
