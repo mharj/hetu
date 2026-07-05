@@ -104,6 +104,8 @@
                 "noFallthroughSwitchClause": "error",
                 "noFunctionAssign": "error",
                 "noGlobalAssign": "error",
+                "noGlobalIsNan": "error",
+                "noGlobalIsFinite": "error",
                 "noImportAssign": "error",
                 "noIrregularWhitespace": "error",
                 "noMisleadingCharacterClass": "error",

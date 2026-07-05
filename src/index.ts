@@ -13,7 +13,7 @@ export function parseStringToInt(value: string | undefined): number {
 		throw new TypeError('Value is undefined');
 	}
 	const parsedValue = parseInt(value, 10);
-	if (isNaN(parsedValue)) {
+	if (Number.isNaN(parsedValue)) {
 		throw new TypeError(`Value is not a number: ${value}`);
 	}
 	return parsedValue;
