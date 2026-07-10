@@ -1,16 +1,10 @@
 {
     "name": "Hetu Devcontainer",
-    "dockerFile": "Dockerfile",
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:5-24-trixie",
+    "customizations": {
+        "vscode": {
+            "extensions": ["biomejs.biome", "esbenp.prettier-vscode", "TypeScriptTeam.native-preview"]
+        }
     },
-    "extensions": [
-        "dbaeumer.vscode-eslint",
-        "ms-vscode.vscode-typescript-tslint-plugin",
-        "esbenp.prettier-vscode",
-        "hbenl.vscode-test-explorer",
-        "hbenl.vscode-mocha-test-adapter"
-    ],
-    "postCreateCommand": "npm install",
-    "remoteUser": "node"
+    "postCreateCommand": "npm install"
 }
