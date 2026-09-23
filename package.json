@@ -17,11 +17,11 @@
         "default": "./dist/index.mjs"
     },
     "devDependencies": {
-        "@biomejs/biome": "2.5.3",
+        "@biomejs/biome": "2.5.14",
         "@types/node": "^25.9.5",
         "@vitest/coverage-v8": "^4.1.10",
         "c8": "^11.0.0",
-        "tsdown": "^0.22.4",
+        "tsdown": "^0.23.0",
         "typescript": "^7.0.2",
         "vite": "^8.1.4",
         "vitest": "^4.1.10",
