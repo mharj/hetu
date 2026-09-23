@@ -34,14 +34,8 @@
         "lint": "biome check",
         "validate": "tsc --noEmit"
     },
-    "keywords": [
-        "pin",
-        "personid",
-        "finnish"
-    ],
-    "files": [
-        "dist"
-    ],
+    "keywords": ["pin", "personid", "finnish"],
+    "files": ["dist"],
     "repository": "github:mharj/hetu",
     "author": "mharj",
     "license": "MIT",
